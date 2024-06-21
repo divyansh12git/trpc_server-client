@@ -21,6 +21,23 @@ const appRouter=router({
                 id:"1",
 
             }
+        }),
+    signup:publicProcedure
+        .input(z.object({
+            email:z.string(),
+            password:z.string(),
+        }))
+        .mutation(async(opts)=>{
+            let email=opts.input.email;
+            let password=opts.input.password;
+
+            //validation
+            //DataBaseStuff
+
+            let token="123";
+            return {
+                token
+            };
         })
 });
 

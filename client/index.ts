@@ -15,5 +15,11 @@ let res=await trpc.createTodo.mutate({
     description:"jdhjs"
 });
 console.log(res);
+
+    let res2=await trpc.signup.mutate({
+        email:"divyanshgupta1811@gmail.com",
+        password:"156",
+    })
+    console.log(res2.token);
 }
 main();
