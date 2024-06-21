@@ -5,7 +5,11 @@ const trpc = createTRPCClient<AppRouter>({
   links: [
     httpBatchLink({
       url: 'http://localhost:3000',
+      async headers(){
+       return{ Authorize:"Bearer 123"};
+      }
     }),
+
   ],
 });
 

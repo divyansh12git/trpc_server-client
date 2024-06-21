@@ -13,6 +13,7 @@ const appRouter=router({
     createTodo:publicProcedure
         .input(todoInputType)
         .mutation(async(opts)=>{
+            console.log(opts.ctx.username);
             const title=opts.input.title;
             const description=opts.input.description;
             //Do db stuff here
@@ -44,6 +45,10 @@ const appRouter=router({
 
 const server = createHTTPServer({
     router: appRouter,
+    createContext(opts){
+        let authHeader=opts.req.header["authorize"];
+        return {username:"44"};
+    }
   });
 
 server.listen(3000);
